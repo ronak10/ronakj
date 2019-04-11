@@ -1,0 +1,9 @@
+FROM openjdk
+FROM ubuntu
+RUN apt-get update 
+RUN apt-get -y maven
+COPY src /usr/maven-demo/src
+COPY pom.xml /usr/maven-demo/pom.xml
+CMD ["mvn","package"]
+CMD ["java","-cp","target/maven-demo-1.0-SNAPSHOT.jar","com.ronak.App"]
+
